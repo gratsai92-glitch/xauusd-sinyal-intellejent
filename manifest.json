@@ -1,0 +1,9 @@
+{
+  "name": "XAUUSD Signal Intelligence",
+  "short_name": "XAU Signal",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b1018",
+  "theme_color": "#101722",
+  "description": "Dashboard analisis XAUUSD, fundamental dan monitor EA"
+}

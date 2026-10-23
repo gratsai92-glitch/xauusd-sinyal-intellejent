@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101722"><meta name="description" content="XAUUSD Signal Intelligence">
+<link rel="manifest" href="manifest.json">
+<title>XAUUSD Signal Intelligence</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1018;--panel:#131c29;--line:#263449;--muted:#91a1b7;--text:#edf3fb;--gold:#e8b84f;--green:#38d39f;--red:#ff6b78;--blue:#6ca9ff}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#111b2a 0,#0b1018 320px);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,sans-serif}
+header{padding:22px 18px 14px;position:sticky;top:0;background:#0b1018ed;backdrop-filter:blur(12px);z-index:2;border-bottom:1px solid #1d2938}
+.brand{display:flex;align-items:center;gap:10px}.logo{background:var(--gold);color:#111;border-radius:12px;width:42px;height:42px;display:grid;place-items:center;font-weight:900;font-size:19px}.brand h1{font-size:17px;margin:0}.sub{font-size:12px;color:var(--muted);margin-top:3px}
+main{padding:16px;max-width:760px;margin:auto}.topline{display:flex;align-items:center;justify-content:space-between;gap:10px}.pill{font-size:11px;border:1px solid #38475b;border-radius:999px;padding:6px 9px;color:var(--muted)}.pill.warn{color:#ffd27b;border-color:#80632e}
+h2{font-size:14px;margin:22px 0 10px;color:#cbd7e8}.hero{background:linear-gradient(135deg,#17283a,#131c29);border:1px solid #2b3a4e;border-radius:20px;padding:18px;margin-top:15px}.herohead{display:flex;justify-content:space-between;align-items:center}.symbol{font-size:12px;color:var(--muted);letter-spacing:1.5px}.bias{font-size:30px;font-weight:850;letter-spacing:.5px;margin:8px 0 3px}.bias.neutral{color:#f1ca73}.bias.bull{color:var(--green)}.bias.bear{color:var(--red)}.desc{color:var(--muted);font-size:13px;line-height:1.5}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:14px;min-width:0}.k{font-size:12px;color:var(--muted)}.v{font-size:17px;font-weight:750;margin-top:7px}.small{font-size:12px;color:var(--muted);margin-top:5px}.section{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:15px;margin-top:10px}.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #263449}.row:last-child{border:0;padding-bottom:0}.row:first-child{padding-top:0}.row span:first-child{color:var(--muted)}.good{color:var(--green)}.bad{color:var(--red)}.gold{color:var(--gold)}button,.filelabel{border:1px solid #34465c;background:#1b2a3c;color:var(--text);border-radius:11px;padding:11px 13px;font-weight:650;font-size:13px;cursor:pointer;display:inline-block}button.primary{background:var(--gold);border-color:var(--gold);color:#16120a}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.tabs{display:flex;gap:7px;overflow:auto;margin:14px 0 2px}.tab{white-space:nowrap;background:transparent}.tab.active{background:#26384d;border-color:#51667e}.hide{display:none!important}input,select,textarea{width:100%;background:#0c1420;color:var(--text);border:1px solid #34465c;border-radius:10px;padding:11px;margin:6px 0 12px;font:inherit}.note{font-size:12px;color:var(--muted);line-height:1.55}.footer{text-align:center;color:#6f8098;font-size:11px;padding:24px 10px 40px}.tag{font-size:10px;border-radius:6px;background:#26364b;padding:4px 7px;color:#b9c9dc}.listitem{padding:12px 0;border-bottom:1px solid var(--line)}.listitem:last-child{border:0}.listitem strong{display:block;margin-bottom:4px}.riskbar{height:7px;border-radius:20px;background:#263449;overflow:hidden;margin:10px 0}.riskbar div{height:100%;width:0;background:var(--green)}@media(min-width:600px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.hero{padding:22px}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">X</div><div><h1>XAUUSD Signal Intelligence</h1><div class="sub">Market bias • Fundamental • EA monitor</div></div></div></header>
+<main>
+<div class="topline"><span class="pill">Mode: Analisis mandiri</span><span class="pill warn" id="connection">Belum terhubung ke data live</span></div>
+<div class="tabs">
+<button class="tab active" data-tab="overview">Overview</button><button class="tab" data-tab="fundamental">Fundamental</button><button class="tab" data-tab="ea">EA / MT5</button><button class="tab" data-tab="data">Data & pengaturan</button>
+</div>
+<section id="overview">
+<div class="hero">
+<div class="herohead"><div><div class="symbol">GOLD / XAUUSD</div><div class="bias neutral" id="bias">NETRAL</div></div><span class="tag" id="sourceTag">DATA CONTOH</span></div>
+<div class="desc" id="reason">Belum ada feed harga live. Muat data terbaru untuk menampilkan bias berdasarkan informasi yang tersedia.</div>
+<div class="actions"><button class="primary" onclick="refreshTime()">Perbarui waktu analisis</button><button onclick="document.querySelector('[data-tab=data]').click()">Muat data</button></div>
+<div class="small" id="updated">Data terakhir: belum ada</div>
+</div>
+<h2>Ringkasan teknikal</h2>
+<div class="grid">
+<div class="card"><div class="k">Trend H1</div><div class="v" id="h1">Belum ada data</div><div class="small">EMA 5/10/30/60</div></div>
+<div class="card"><div class="k">Konfirmasi M15</div><div class="v" id="m15">Belum ada data</div><div class="small">Arah timeframe</div></div>
+<div class="card"><div class="k">Konfirmasi M5</div><div class="v" id="m5">Belum ada data</div><div class="small">Momentum entry</div></div>
+<div class="card"><div class="k">Fundamental USD</div><div class="v" id="usd">Campuran</div><div class="small">Berdasarkan input data</div></div>
+</div>
+<h2>Kesimpulan</h2><div class="section"><div id="conclusion">Muat file data untuk menampilkan bias yang lebih bermakna. Aplikasi ini tidak membuka transaksi.</div></div>
+<h2>Data pasar</h2><div class="grid">
+<div class="card"><div class="k">Harga XAUUSD</div><div class="v" id="price">—</div></div>
+<div class="card"><div class="k">DXY</div><div class="v" id="dxy">—</div></div>
+<div class="card"><div class="k">US 10Y yield</div><div class="v" id="yield">—</div></div>
+<div class="card"><div class="k">Berita berdampak tinggi</div><div class="v" id="news">—</div></div>
+</div>
+</section>
+<section id="fundamental" class="hide">
+<h2>Fundamental & kalender ekonomi</h2>
+<div class="section"><div class="row"><span>Bias fundamental</span><strong id="fundBias">Belum dinilai</strong></div><div class="row"><span>Event berikutnya</span><strong id="nextEvent">Belum dimuat</strong></div><div class="row"><span>Aktual / Forecast / Sebelumnya</span><strong id="eventValues">—</strong></div></div>
+<h2>Catatan fundamental</h2><div class="section" id="fundNotes">Tambahkan berita dan data ekonomi pada tab Data & pengaturan.</div>
+<p class="note">Berita ekonomi dapat menggerakkan emas ke dua arah. Analisis ini bersifat informasional, bukan jaminan arah harga.</p>
+</section>
+<section id="ea" class="hide">
+<h2>Koneksi EA / MT5</h2><div class="section"><div class="row"><span>Status koneksi</span><strong class="gold">Belum terhubung</strong></div><div class="row"><span>Posisi aktif</span><strong id="positions">Tidak tersedia</strong></div><div class="row"><span>Profit berjalan</span><strong id="profit">Tidak tersedia</strong></div><div class="row"><span>Riwayat</span><strong>Menunggu integrasi</strong></div></div>
+<p class="note">Aplikasi ini belum menerima data dari terminal MT5. Untuk koneksi live, EA perlu mengirim data melalui API/server aman atau mekanisme komunikasi yang dibuat khusus. Jangan memasukkan password akun trading ke aplikasi ini.</p>
+</section>
+<section id="data" class="hide">
+<h2>Muat data analisis</h2><div class="section">
+<p class="note">Impor file JSON berisi data terbaru. Data dapat disimpan di perangkat untuk dilihat kembali saat offline. File contoh bisa diunduh di bawah.</p>
+<label class="filelabel" for="jsonFile">Pilih file JSON</label><input id="jsonFile" type="file" accept=".json,application/json">
+<div class="actions"><button class="primary" onclick="loadDemo()">Muat data contoh</button><button onclick="downloadTemplate()">Unduh template JSON</button><button onclick="clearData()">Hapus data tersimpan</button></div>
+</div>
+<h2>Format data yang didukung</h2><div class="section"><pre style="white-space:pre-wrap;overflow-wrap:anywhere;color:#b7c8dc;font-size:12px" id="templatePreview"></pre></div>
+<h2>Catatan dan sumber</h2><div class="section"><label for="notesInput">Catatan fundamental / berita</label><textarea id="notesInput" rows="4" placeholder="Tulis ringkasan berita, data CPI/NFP/Fed, atau alasan bias..."></textarea><button onclick="saveNotes()">Simpan catatan</button></div>
+<p class="note">Catatan: versi ini tidak mengambil data live secara otomatis. Untuk data online otomatis diperlukan API harga/berita dan server yang dikonfigurasi. Data contoh tidak boleh dianggap sinyal aktual.</p>
+</section>
+<div class="footer">XAUUSD Signal Intelligence • Prototipe awal • Bukan nasihat investasi</div>
+</main>
+<script>
+const template={updatedAt:new Date().toISOString(),symbol:"XAUUSD",price:null,technical:{h1:"Netral",m15:"Belum ada data",m5:"Belum ada data"},fundamental:{usdBias:"Campuran",dxy:null,us10yYield:null,nextEvent:"Belum dimuat",actual:null,forecast:null,previous:null,highImpactNews:"Belum dimuat",notes:""},bias:"Netral",reason:"Masukkan data yang telah diverifikasi."};
+function showTab(id){document.querySelectorAll('main section').forEach(s=>s.classList.toggle('hide',s.id!==id));document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===id))}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+function setText(id,v){document.getElementById(id).textContent=(v===null||v===undefined||v==="")?"—":v}
+function applyData(d){
+const t=d.technical||{},f=d.fundamental||{};
+setText('bias',(d.bias||'Netral').toUpperCase());document.getElementById('bias').className='bias '+((d.bias||'').toLowerCase().includes('bull')?'bull':(d.bias||'').toLowerCase().includes('bear')?'bear':'neutral');
+setText('reason',d.reason||'Bias dihitung dari data yang dimuat; verifikasi sumber dan waktu pembaruan.');
+setText('h1',t.h1||'Belum ada data');setText('m15',t.m15||'Belum ada data');setText('m5',t.m5||'Belum ada data');setText('usd',f.usdBias||'Campuran');
+setText('price',d.price===null||d.price===undefined?'—':d.price);setText('dxy',f.dxy);setText('yield',f.us10yYield);setText('news',f.highImpactNews);
+setText('fundBias',f.usdBias||'Belum dinilai');setText('nextEvent',f.nextEvent||'Belum dimuat');setText('eventValues',[f.actual??'—',f.forecast??'—',f.previous??'—'].join(' / '));setText('fundNotes',f.notes||'Belum ada catatan fundamental.');setText('conclusion',d.conclusion||d.reason||'Belum ada kesimpulan.');
+setText('updated','Data terakhir: '+(d.updatedAt?new Date(d.updatedAt).toLocaleString():'waktu tidak tersedia'));setText('sourceTag',d.source||'DATA IMPOR');document.getElementById('connection').textContent=d.source==='LIVE API'?'Sumber live (perlu diverifikasi)':'Data impor / tersimpan';
+localStorage.setItem('xauData',JSON.stringify(d));
+}
+function loadDemo(){const d={...template,updatedAt:new Date().toISOString(),source:"DATA CONTOH",bias:"Netral",reason:"Ini hanya data contoh. Belum terhubung ke harga live atau feed berita.",technical:{h1:"Netral",m15:"Menunggu",m5:"Menunggu"},fundamental:{...template.fundamental,usdBias:"Campuran",notes:"Contoh: tunggu konfirmasi rilis data ekonomi dan arah DXY."},conclusion:"Jangan gunakan data contoh untuk mengambil keputusan trading."};applyData(d)}
+document.getElementById('jsonFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const d=JSON.parse(await f.text());applyData(d);alert('Data berhasil dimuat pada perangkat ini. Pastikan sumber dan waktu datanya benar.')}catch(err){alert('File JSON tidak valid. Periksa formatnya.')}});
+function downloadTemplate(){const blob=new Blob([JSON.stringify(template,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='xauusd_data_template.json';a.click();URL.revokeObjectURL(a.href)}
+function clearData(){localStorage.removeItem('xauData');localStorage.removeItem('xauNotes');loadDemo()}
+function saveNotes(){const n=document.getElementById('notesInput').value;localStorage.setItem('xauNotes',n);document.getElementById('fundNotes').textContent=n||'Belum ada catatan fundamental.';alert('Catatan disimpan di perangkat ini.')}
+function refreshTime(){const d=JSON.parse(localStorage.getItem('xauData')||'null');if(d){d.viewedAt=new Date().toISOString();setText('updated','Data sumber terakhir: '+(d.updatedAt?new Date(d.updatedAt).toLocaleString():'tidak tersedia')+' • Dilihat: '+new Date().toLocaleTimeString());}else setText('updated','Belum ada data yang dimuat. Waktu sekarang bukan waktu update harga.')}
+document.getElementById('templatePreview').textContent=JSON.stringify(template,null,2);
+const saved=localStorage.getItem('xauData');if(saved){try{applyData(JSON.parse(saved))}catch(e){loadDemo()}}else loadDemo();
+const notes=localStorage.getItem('xauNotes');if(notes){document.getElementById('notesInput').value=notes;setText('fundNotes',notes)}
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body></html>
