@@ -91,8 +91,6 @@ const saved=localStorage.getItem('xauData');if(saved){try{applyData(JSON.parse(s
 const notes=localStorage.getItem('xauNotes');if(notes){document.getElementById('notesInput').value=notes;setText('fundNotes',notes)}
 if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
-</body></html>
-</script>
 <div style="width:100%; margin:16px 0; background:#0b1220; border-radius:12px; overflow:hidden;">
 <iframe
  src="https://s.tradingview.com/widgetembed/?frameElementId=tv_xauusd&symbol=OANDA%3AXAUUSD&interval=60&hidesidetoolbar=1&symboledit=1&saveimage=0&toolbarbg=0b1220&theme=dark&style=1&timezone=Asia%2FKuala_Lumpur&withdateranges=1&hideideas=1&locale=en"
